@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InteriorVision AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="icon">✨</span>
+            <h1>InteriorVision <span>AI</span></h1>
+        </div>
+        <p>Your AI-powered interior design assistant</p>
+    </header>
+
+    <main class="container">
+        <!-- Input Section -->
+        <section class="input-section glass-panel">
+            <h2>Design Settings</h2>
+
+            <form id="designForm">
+                <div class="form-group">
+                    <label for="imageUpload">Upload Room Image</label>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="imageUpload" name="imageUpload"
+                            accept="image/jpeg, image/png, image/webp" hidden>
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <span class="upload-icon">📸</span>
+                            <p>Drag & Drop or <strong>Click to Upload</strong></p>
+                            <span class="upload-hint">Supports JPG, PNG</span>
+                        </div>
+                        <img id="imagePreview" class="image-preview hidden">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="styleSelect">Interior Style</label>
+                        <select id="styleSelect" required>
+                            <option value="Modern">Modern</option>
+                            <option value="Minimalist">Minimalist</option>
+                            <option value="Scandinavian">Scandinavian</option>
+                            <option value="Luxury">Luxury</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Bohemian">Bohemian</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="promptInput">Describe the Design (Optional)</label>
+                    <textarea id="promptInput"
+                        placeholder="e.g., modern minimalist living room with lots of plants and warm wooden floors..."
+                        rows="3"></textarea>
+                </div>
+
+                <button type="submit" id="generateBtn" class="primary-btn">
+                    <span class="btn-text">Generate Design</span>
+                    <span class="btn-loader hidden"></span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Result Section -->
+        <section class="result-section hidden" id="resultSection">
+            <h2>Your Redesigned Space</h2>
+
+            <div class="image-comparison">
+                <div class="image-box">
+                    <span class="badge">Original</span>
+                    <img id="resultOriginalImage" src="" alt="Original Room">
+                </div>
+                <div class="image-box generated-box">
+                    <span class="badge ai-badge">AI Generated</span>
+                    <div id="imageLoader" class="image-loader">
+                        <div class="spinner"></div>
+                        <p>AI is redesigning your room...</p>
+                    </div>
+                    <img id="resultGeneratedImage" class="hidden" src="" alt="Generated Room">
+                </div>
+            </div>
+
+            <!-- AI Chat / Tips Area -->
+            <div class="ai-chat glass-panel">
+                <div class="chat-header">
+                    <span class="icon">💡</span>
+                    <h3>AI Design Tips</h3>
+                </div>
+                <div class="chat-body" id="aiTipsContainer">
+                    <!-- Tips will be injected here -->
+                    <div class="skeleton-loader">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
