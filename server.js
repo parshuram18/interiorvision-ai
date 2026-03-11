@@ -76,7 +76,7 @@ Masterpiece, highly detailed, perfect lighting, architectural digest quality, 8k
         
     } catch (error) {
         console.error("Error generating image:", error);
-        return getSvgPlaceholder(`API Error. Please try again.`);
+        return getSvgPlaceholder(`Error: ${error.message}`);
     }
 }
 
